@@ -78,17 +78,15 @@
 Возвращаемые данные:
 ```
 {
-    IssueClientAuthToken(issueClientAuthTokenDto: $issueClientAuthTokenDto) {
-        currency
-        exp
-        gameId
-        gameName
-        iat
-        iframeUrl
-        partnerId
-        sub
-        token
-    }
+    currency
+    exp
+    gameId
+    gameName
+    iat
+    iframeUrl
+    partnerId
+    sub
+    token
 }
 ```
 * Ключ выписывается на 24 часа
