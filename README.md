@@ -217,3 +217,123 @@
 ```
 * Обратите внимание что список игр получаем по партнёрскому токену, это означает что это нужно делать бекендом.
 * При построении GQL запроса желательно запрашивать не все данные из предложенных, а только те что дейтствительно нужны. Это ускорит отображение списка игр.
+
+
+
+# Методы которые нужно реализовать со стороны партнёра
+1. Метод принятия ставки:
+Отправляемые параметры:
+```
+{
+    partnerToken: string
+    betAmount: uInt32
+    gameId: string
+    clientId: string
+    roundId: string
+    partnerApiUrl,: string
+    betId: string
+    betValue: uInt32
+}
+```
+
+Ожидаемый ответ:
+```
+{
+    isBetAccepted: bool,
+    remainingBalance: uInt32,
+}
+```
+
+2. Метод принятия пачки ставок. Либо принимаются все, либо отклоняеются все.
+* Решили что этот метод в низком приоритете, тк без него ставки будут работать, но возможны проблемы на "треке" рулетке, когда недостаточно баланса на полную ставку.
+Отправляемые параметры:
+```
+{
+    bets: [
+        {
+            betValue: uInt32
+            betId: string
+            roundId: string
+            clientId: string
+            betAmount: uInt32
+            gameId: string
+        }
+    ],
+    partnerApiUrl: string
+    partnerToken: string
+}
+```
+
+Ожидаемый ответ:
+```
+{
+    isBetAccepted: bool,
+    remainingBalance: uInt32,
+}
+```
+
+3. Метод завершения ставок.
+Отправляемые параметры:
+```
+{
+    bets: [
+        {
+            winning: uInt32 // 0 если проиграл, больше 0 если выиграл.
+            betId: string
+            clientId: string
+        }
+    ],
+    roundId: string
+    partnerApiUrl: string
+    partnerToken: string
+}
+```
+
+Ожидаемый ответ:
+```
+[
+    {
+        amount: uInt32
+        clientId: string
+    }
+]
+```
+
+4. Метод отмены ставок.
+Отправляемые параметры:
+```
+{
+    betIds: string[],
+    clientId: string
+    roundId: string
+    partnerApiUrl: string
+    partnerToken: string
+}
+```
+
+Ожидаемый ответ:
+```
+[
+    {
+        amount: uInt32
+        clientId: string
+    }
+]
+```
+
+5. Метод получения свободного баланса игрока.
+Отправляемые параметры:
+```
+{
+    clientId: string
+    partnerApiUrl: string
+    partnerToken: string
+}
+```
+
+Ожидаемый ответ:
+```
+{
+    amount: uInt32
+}
+```
