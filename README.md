@@ -25,6 +25,7 @@
 Обязательный заголовок: `Authorization: Bearer [PARTNER_TOKEN]`
 
 Возвращаемые параметры:
+```
 {
     id
     externalId
@@ -40,6 +41,8 @@
         name
     }
 }
+```
+
 
 2. UpdatePublicClient. Обновление профиля игрока в системе.
 Обязательный заголовок: `Authorization: Bearer [PARTNER_TOKEN]`
@@ -72,6 +75,22 @@
 - `clientId`(обязательный) - primary_id игрока в БД Ipplum, возвращаемый при создании клиента.
 - `gameId`(обязательный) - primary_id игры, получаем со списка игр: GetPublicGamesList
 - `currencyKey`(обязательный) - ключ валюты созданный в админке в разделе: Справочник -> Валюты -> Ключ.
+Возвращаемые данные:
+```
+{
+    IssueClientAuthToken(issueClientAuthTokenDto: $issueClientAuthTokenDto) {
+        currency
+        exp
+        gameId
+        gameName
+        iat
+        iframeUrl
+        partnerId
+        sub
+        token
+    }
+}
+```
 * Ключ выписывается на 24 часа
 * Для одной игры единовременно валиден только один ключ. При выписывании нового, старый протухает.
 
