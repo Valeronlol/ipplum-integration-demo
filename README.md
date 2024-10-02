@@ -226,11 +226,11 @@
 ```
 {
     partnerToken: string
-    betAmount: uInt32
+    betAmount: Double
     gameId: string
     clientId: string
     roundId: string
-    partnerApiUrl,: string
+    partnerApiUrl: string
     betId: string
     betValue: uInt32
 }
@@ -255,7 +255,7 @@
             betId: string
             roundId: string
             clientId: string
-            betAmount: uInt32
+            betAmount: Double
             gameId: string
         }
     ],
