@@ -278,7 +278,7 @@
 {
     bets: [
         {
-            winning: uInt32 // 0 если проиграл, больше 0 если выиграл.
+            winning: Double // 0 если проиграл, больше 0 если выиграл.
             betId: string
             clientId: string
         }
@@ -334,6 +334,6 @@
 Ожидаемый ответ:
 ```
 {
-    amount: uInt32
+    amount: uInt32 | Double
 }
 ```
