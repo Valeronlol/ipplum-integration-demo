@@ -241,7 +241,7 @@
 Ожидаемый ответ:
 ```
 {
-    remainingBalance: uInt32 | Double | Float
+    remainingBalance: uInt32
 }
 ```
 
@@ -315,6 +315,6 @@
 Ожидаемый ответ:
 ```
 {
-    remainingBalance: uInt32 | Double | Float
+    remainingBalance: uInt32
 }
 ```
