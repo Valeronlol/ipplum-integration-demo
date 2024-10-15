@@ -267,8 +267,12 @@ partnerToken: Bearer token
 Ожидаемый ответ:
 ```
 {
-    isBetAccepted: bool,
-    remainingBalance: uInt32,
+    data: [
+        {
+            isBetAccepted: bool
+            remainingBalance: uInt32
+        }
+    ]
 }
 ```
 
@@ -342,7 +346,7 @@ partnerToken: Bearer token
 Ожидаемый ответ:
 ```
 {
-    balance: [
+    data: [
         {
             clientId: string
             remainingBalance: uInt32 | Double | Float
