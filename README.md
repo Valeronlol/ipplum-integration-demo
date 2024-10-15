@@ -232,7 +232,7 @@
     roundId: string
     partnerApiUrl: string
     betId: string
-    betValue: uInt32
+    betValue: uInt32[]
 }
 ```
 
@@ -251,7 +251,7 @@
 {
     bets: [
         {
-            betValue: uInt32
+            betValue: uInt32[]
             betId: string
             roundId: string
             clientId: string
