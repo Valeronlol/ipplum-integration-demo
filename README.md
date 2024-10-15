@@ -291,12 +291,14 @@ partnerToken: Bearer token
 
 Ожидаемый ответ:
 ```
-[
-    {
-        amount: uInt32
-        clientId: string
-    }
-]
+{
+    data: [
+        {
+            amount: uInt32
+            clientId: string
+        }
+    ]
+}
 ```
 
 4. Метод отмены ставок.
@@ -304,23 +306,27 @@ partnerApiUrl: Путь к API
 partnerToken: Bearer token
 Отправляемые параметры:
 ```
-[
-  {
-    betId: string
-    clientId: string
-    roundId: string
-  }
-]
+{
+  bets: [
+    {
+      id: string
+      clientId: string
+      roundId: string
+    }
+  ]
+}
 ```
 
 Ожидаемый ответ:
 ```
-[
-    {
-        amount: uInt32
-        clientId: string
-    }
-]
+{
+    data: [
+        {
+            amount: uInt32
+            clientId: string
+        }
+    ]
+}
 ```
 
 5. Метод получения свободного баланса игрока.
