@@ -229,25 +229,20 @@
         {
             betValue: float[]
             betId: string
-            roundId: string
-            clientId: string
             betAmount: Double
-            gameId: string
         }
     ],
+    roundId: string
+    clientId: string
+    gameId: string
 }
 ```
 
 Ожидаемый ответ:
 ```
 {
-    data: [
-        {
-            clientId: string
-            isBetAccepted: bool
-            remainingBalance: uInt32
-        }
-    ]
+    isBetAccepted: bool
+    remainingBalance: uInt32 | Double | Float
 }
 ```
 
@@ -314,19 +309,13 @@
 - partnerToken: Bearer token
 ```
 {
-    clientIds: string[]
+    clientId: string
 }
 ```
 
 Ожидаемый ответ:
 ```
 {
-    data: [
-        {
-            clientId: string
-            remainingBalance: uInt32 | Double | Float
-        }
-    ]
-    
+    remainingBalance: uInt32 | Double | Float
 }
 ```
