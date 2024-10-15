@@ -241,7 +241,6 @@
 Ожидаемый ответ:
 ```
 {
-    isBetAccepted: bool
     remainingBalance: uInt32 | Double | Float
 }
 ```
