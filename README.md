@@ -223,16 +223,16 @@
 # Методы которые нужно реализовать со стороны партнёра
 1. Метод принятия ставки:
 Отправляемые параметры:
+partnerApiUrl: Путь к API
+partnerToken: Bearer token
 ```
 {
-    partnerToken: string
     betAmount: Double
     gameId: string
     clientId: string
     roundId: string
-    partnerApiUrl: string
     betId: string
-    betValue: float[]
+    betValue: Float[]
 }
 ```
 
@@ -246,6 +246,8 @@
 
 2. Метод принятия пачки ставок. Либо принимаются все, либо отклоняеются все.
 * Решили что этот метод в низком приоритете, тк без него ставки будут работать, но возможны проблемы на "треке" рулетке, когда недостаточно баланса на полную ставку.
+partnerApiUrl: Путь к API
+partnerToken: Bearer token
 Отправляемые параметры:
 ```
 {
@@ -259,8 +261,6 @@
             gameId: string
         }
     ],
-    partnerApiUrl: string
-    partnerToken: string
 }
 ```
 
@@ -273,6 +273,8 @@
 ```
 
 3. Метод завершения ставок.
+partnerApiUrl: Путь к API
+partnerToken: Bearer token
 Отправляемые параметры:
 ```
 {
@@ -284,8 +286,6 @@
         }
     ],
     roundId: string
-    partnerApiUrl: string
-    partnerToken: string
 }
 ```
 
@@ -300,15 +300,17 @@
 ```
 
 4. Метод отмены ставок.
+partnerApiUrl: Путь к API
+partnerToken: Bearer token
 Отправляемые параметры:
 ```
-{
-    betIds: string[],
+[
+  {
+    betId: string
     clientId: string
     roundId: string
-    partnerApiUrl: string
-    partnerToken: string
-}
+  }
+]
 ```
 
 Ожидаемый ответ:
@@ -323,17 +325,23 @@
 
 5. Метод получения свободного баланса игрока.
 Отправляемые параметры:
+partnerApiUrl: Путь к API
+partnerToken: Bearer token
 ```
 {
-    clientId: string
-    partnerApiUrl: string
-    partnerToken: string
+    clientIds: string[]
 }
 ```
 
 Ожидаемый ответ:
 ```
 {
-    amount: uInt32 | Double
+    balance: [
+        {
+            clientId: string
+            remainingBalance: uInt32 | Double | Float
+        }
+    ]
+    
 }
 ```
