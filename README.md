@@ -219,35 +219,9 @@
 * При построении GQL запроса желательно запрашивать не все данные из предложенных, а только те что дейтствительно нужны. Это ускорит отображение списка игр.
 
 
-
-# Методы которые нужно реализовать со стороны партнёра
-1. Метод принятия ставки:
-Отправляемые параметры:
-partnerApiUrl: Путь к API
-partnerToken: Bearer token
-```
-{
-    betAmount: Double
-    gameId: string
-    clientId: string
-    roundId: string
-    betId: string
-    betValue: Float[]
-}
-```
-
-Ожидаемый ответ:
-```
-{
-    isBetAccepted: bool,
-    remainingBalance: uInt32,
-}
-```
-
-2. Метод принятия пачки ставок. Либо принимаются все, либо отклоняеются все.
-* Решили что этот метод в низком приоритете, тк без него ставки будут работать, но возможны проблемы на "треке" рулетке, когда недостаточно баланса на полную ставку.
-partnerApiUrl: Путь к API
-partnerToken: Bearer token
+1. Метод принятия пачки ставок. Либо принимаются все, либо отклоняеются все.
+- partnerApiUrl: Путь к API
+- partnerToken: Bearer token
 Отправляемые параметры:
 ```
 {
@@ -269,6 +243,7 @@ partnerToken: Bearer token
 {
     data: [
         {
+            clientId: string
             isBetAccepted: bool
             remainingBalance: uInt32
         }
@@ -276,9 +251,9 @@ partnerToken: Bearer token
 }
 ```
 
-3. Метод завершения ставок.
-partnerApiUrl: Путь к API
-partnerToken: Bearer token
+2. Метод завершения ставок.
+- partnerApiUrl: Путь к API
+- partnerToken: Bearer token
 Отправляемые параметры:
 ```
 {
@@ -305,9 +280,9 @@ partnerToken: Bearer token
 }
 ```
 
-4. Метод отмены ставок.
-partnerApiUrl: Путь к API
-partnerToken: Bearer token
+3. Метод отмены ставок.
+- partnerApiUrl: Путь к API
+- partnerToken: Bearer token
 Отправляемые параметры:
 ```
 {
@@ -333,10 +308,10 @@ partnerToken: Bearer token
 }
 ```
 
-5. Метод получения свободного баланса игрока.
+4. Метод получения свободного баланса игрока.
 Отправляемые параметры:
-partnerApiUrl: Путь к API
-partnerToken: Bearer token
+- partnerApiUrl: Путь к API
+- partnerToken: Bearer token
 ```
 {
     clientIds: string[]
