@@ -267,7 +267,7 @@
 {
     data: [
         {
-            amount: uInt32
+            remainingBalance: uInt32
             clientId: string
         }
     ]
