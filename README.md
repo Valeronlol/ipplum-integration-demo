@@ -255,7 +255,6 @@
         {
             winning: uInt32 // 0 если проиграл, больше 0 если выиграл.
             betId: string
-            clientId: string
         }
     ],
     roundId: string
@@ -282,9 +281,8 @@
 {
   bets: [
     {
-      id: string
+      betId: string
       clientId: string
-      roundId: string
     }
   ]
 }
@@ -295,7 +293,7 @@
 {
     data: [
         {
-            amount: uInt32
+            remainingBalance: uInt32
             clientId: string
         }
     ]
