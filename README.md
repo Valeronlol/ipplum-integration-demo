@@ -229,7 +229,7 @@
         {
             betValue: float[]
             betId: string
-            betAmount: Double
+            betAmount: uInt32
         }
     ],
     roundId: string
