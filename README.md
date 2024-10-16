@@ -256,8 +256,7 @@
             winning: uInt32 // 0 если проиграл, больше 0 если выиграл.
             betId: string
         }
-    ],
-    roundId: string
+    ]
 }
 ```
 
