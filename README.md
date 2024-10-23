@@ -1,4 +1,4 @@
-# Требовния к софту для тестовог запуска
+# Требовния к софту для тестового запуска
 - Nodejs v22 ([свежая версия нужна для fetch](https://nodejs.org/api/globals.html#fetch)). Если не хотите ставить свежую ноду локально, можете использовать [NVM](https://github.com/nvm-sh/nvm)
 
 # Установка и запуск
@@ -314,5 +314,31 @@
 ```
 {
     remainingBalance: uInt32
+}
+```
+
+## Интерфейсы FE
+- iframe postmessage
+```
+enum IEventType {
+  BACK_BTN_CLICK = 1,
+  TOP_UP_BTN_CLICK,
+}
+
+interface IBackPayload {
+  x: number
+  y: number
+}
+
+interface ITopUpPayload {
+  x: number
+  y: number
+}
+
+type IPayloadType = IBackPayload | ITopUpPayload
+
+export interface IPostMessage {
+  type: IEventType
+  payload: IPayloadType
 }
 ```
